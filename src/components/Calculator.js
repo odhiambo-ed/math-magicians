@@ -1,40 +1,40 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 function Calculator() {
     const [data, setData] = useState("");
     const setValue = (e) => {
-        setData(data.concat(e.target.name))
-    }
+        setData(data.concat(e.target.name));
+    };
     const emptyValues = () => {
-        setData("")
-    }
+        setData("");
+    };
     const removeSomeValues = () => {
-        setData(data.slice(0, -1))
-    }
+        setData(data.slice(0, -1));
+    };
     const calculate = () => {
         try {
-            setData(eval(data).toString())
+            setData(eval(data).toString());
         } catch (err) {
-            setData("Error")
+            setData("Error");
         }
-    }
-  return (
-      <div>
-          <Input data={data} setData={setData} />
-          <First
-              setValue={setValue}
-              emptyValues={emptyValues}
-              removeSomeValues={removeSomeValues}
-          />
-          <Second setValue={setValue} />
-          <Third setValue={setValue} />
-          <Fourth setValue={setValue} />
-          <Fifth setValue={setValue} calculate={calculate} />
-    </div>
-  )
+    };
+    return (
+        <div>
+            <Input data={data} setData={setData} />
+            <First
+                setValue={setValue}
+                emptyValues={emptyValues}
+                removeSomeValues={removeSomeValues}
+            />
+            <Second setValue={setValue} />
+            <Third setValue={setValue} />
+            <Fourth setValue={setValue} />
+            <Fifth setValue={setValue} calculate={calculate} />
+        </div>
+    );
 }
 
-export default Calculator
+export default Calculator;
 
 function First({ setValue, emptyValues, removeSomeValues }) {
     return (
@@ -423,4 +423,3 @@ function Input({ data, setData }) {
         </div>
     );
 }
-

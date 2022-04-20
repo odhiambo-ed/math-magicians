@@ -1,10 +1,21 @@
-import './App.css';
-import Calculator from './components/Calculator';
+import React from "react";
+import "./App.css";
+
+import Calculator from "./components/Calculator";
 
 function App() {
   return (
     <div className="App">
-      <Calculator />
+      <div
+        style={{
+          backgroundColor: "black",
+          width: "35%",
+          margin: "auto",
+          marginTop: 100,
+        }}
+      >
+        <Calculator />
+      </div>
     </div>
   );
 }
