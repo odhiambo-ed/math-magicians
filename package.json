@@ -51,5 +51,18 @@
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.21.0"
-  }
+  },
+  "description": "![App Screenshot](app_screenshot.png)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/white3d/math-magicians.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/white3d/math-magicians/issues"
+  },
+  "homepage": "https://github.com/white3d/math-magicians#readme"
 }
