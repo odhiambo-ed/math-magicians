@@ -1,23 +1,11 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
 
-import Calculator from "./components/Calculator";
-
-function App() {
-  return (
-    <div className="App">
-      <div
-        style={{
-          backgroundColor: "black",
-          width: "35%",
-          margin: "auto",
-          marginTop: 100,
-        }}
-      >
-        <Calculator />
-      </div>
-    </div>
-  );
-}
-
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);
