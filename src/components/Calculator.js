@@ -1,39 +1,81 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 /* eslint-disable no-eval */
-function Calculator() {
-  const [data, setData] = useState('');
-  const setValue = (e) => {
-    setData(data.concat(e.target.name));
+class Calculator extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      obj: {
+        total: '',
+      },
+    };
+    this.setValue = this.setValue.bind(this);
+    this.emptyValues = this.emptyValues.bind(this);
+    this.removeSomeValues = this.removeSomeValues.bind(this);
+    this.calculate = this.calculate.bind(this);
+  }
+
+  setValue(e) {
+    const { obj } = this.state;
+    const newObj = { total: obj.total.concat(e.target.name) };
+    this.setState({
+      obj: newObj,
+    });
+  }
+
+  emptyValues = () => {
+    this.setState({
+      obj: {
+        total: '',
+      },
+    });
   };
-  const emptyValues = () => {
-    setData('');
-  };
-  const removeSomeValues = () => {
-    setData(data.slice(0, -1));
-  };
-  const calculate = () => {
+
+  calculate = () => {
     try {
-      setData(eval(data).toString());
+      const { obj } = this.state;
+      this.setState({
+        obj: {
+          total: eval(obj.total).toString(),
+        },
+      });
     } catch (err) {
-      setData('Error');
+      this.setState({
+        obj: {
+          total: 'Error',
+        },
+      });
     }
   };
-  return (
-    <div>
-      <Input data={data} setData={setData} />
-      <First
-        setValue={setValue}
-        emptyValues={emptyValues}
-        removeSomeValues={removeSomeValues}
-      />
-      <Second setValue={setValue} />
-      <Third setValue={setValue} />
-      <Fourth setValue={setValue} />
-      <Fifth setValue={setValue} calculate={calculate} />
-    </div>
-  );
+
+  removeSomeValues = () => {
+    const { obj } = this.state;
+    this.setState({
+      obj: {
+        total: obj.total.slice(0, -1),
+      },
+    });
+  };
+
+  render() {
+    const { obj } = this.state;
+    const current = obj.total;
+    return (
+      <div>
+        <Input current={current} />
+        <First
+          setValue={this.setValue}
+          emptyValues={this.emptyValues}
+          removeSomeValues={this.removeSomeValues}
+        />
+        <Second setValue={this.setValue} />
+        <Third setValue={this.setValue} />
+        <Fourth setValue={this.setValue} />
+        <Fifth setValue={this.setValue} calculate={this.calculate} />
+      </div>
+    );
+  }
 }
 
 export default Calculator;
@@ -446,7 +488,7 @@ Fifth.propTypes = {
   calculate: PropTypes.func.isRequired,
 };
 
-function Input({ data, setData }) {
+function Input({ current }) {
   return (
     <div
       style={{
@@ -454,8 +496,8 @@ function Input({ data, setData }) {
       }}
     >
       <input
-        value={data}
-        onChange={(e) => setData(e.target.value)}
+        value={current}
+        readOnly
         style={{
           backgroundColor: 'white',
           width: '100%',
@@ -468,6 +510,5 @@ function Input({ data, setData }) {
 }
 
 Input.propTypes = {
-  data: PropTypes.func.isRequired,
-  setData: PropTypes.string.isRequired,
+  current: PropTypes.string.isRequired,
 };
