@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-/* eslint-disable no-eval */
 class Calculator extends Component {
   constructor(props) {
     super(props);
@@ -33,20 +32,45 @@ class Calculator extends Component {
   };
 
   calculate = () => {
-    try {
-      const { obj } = this.state;
-      this.setState({
-        obj: {
-          total: eval(obj.total).toString(),
-        },
-      });
-    } catch (err) {
-      this.setState({
-        obj: {
-          total: 'Error',
-        },
-      });
+    const { obj } = this.state;
+    const noWsStr = obj.total.replace(/\s/g, '');
+    const operators = noWsStr.replace(/[\d.,]/g, '').split('');
+    const operands = noWsStr.replace(/[+/%*-]/g, ' ')
+      .replace(/,/g, '.')
+      .split(' ')
+      .map(parseFloat)
+      .filter((it) => it);
+    if (operators.length >= operands.length) {
+      throw new Error('Operators qty must be lesser than operands qty');
     }
+    while (operators.includes('*')) {
+      const opIndex = operators.indexOf('*');
+      operands.splice(opIndex, 2, operands[opIndex] * operands[opIndex + 1]);
+      operators.splice(opIndex, 1);
+    }
+    while (operators.includes('/')) {
+      const opIndex = operators.indexOf('/');
+      operands.splice(opIndex, 2, operands[opIndex] / operands[opIndex + 1]);
+      operators.splice(opIndex, 1);
+    }
+    while (operators.includes('%')) {
+      const opIndex = operators.indexOf('%');
+      operands.splice(opIndex, 2, operands[opIndex] % operands[opIndex + 1]);
+      operators.splice(opIndex, 1);
+    }
+    let result = operands[0];
+    for (let i = 0; i < operators.length; i += 1) {
+      if (operators[i] === '+') {
+        result += operands[i + 1];
+      } else {
+        result -= operands[i + 1];
+      }
+    }
+    this.setState({
+      obj: {
+        total: result,
+      },
+    });
   };
 
   removeSomeValues = () => {

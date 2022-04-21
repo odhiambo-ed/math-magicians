@@ -24,7 +24,7 @@ After cloning the repo, change dir to the project folder then run the following:
 - [x] `npm run build`
 - [x] `npm start`
 
-Hurray!!! You are now good to go.
+Hurray!!! You are now good to go!
 ## Authors
 
 👤 **Author1**
