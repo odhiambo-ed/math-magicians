@@ -1,62 +1,55 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+![App Screenshot](app_screenshot.png)
 
-# Project Name
-
-> Description the project.
-
+# MATH MAGICIANS APP
+This is Math Magicians application. It is developed on React components that holds core functionalities of a calculator.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+[x] Major languages - `HTML`, `CSS`, `SASS` and `JavaScript`
+[x] Frameworks - `React``Webpack`, `Bootstrap`, `Jest`, `JSON` and `Nodejs`
+[x] Technologies used - `ES6 Modules`, `Callbacks/Promises`, `Gitflow`
 
-## Live Demo (if available)
+## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](http://edwardodhiambo.me/math-magicians/)
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+Use this url to clone the repo on your terminal: https://github.com/white3d/math-magicians.git
 
+After cloning the repo, change dir to the project folder then run the following:
 
-To get a local copy up and running follow these simple example steps.
+- [x] `npm install`
+- [x] `npm run build`
+- [x] `npm start`
 
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
-
+Hurray!!! You are now good to go!
 ## Authors
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+[Portfolio Website](https://edwardodhiambo.me/My-Portfolio/)
+
+- GitHub: [@whit3d](https://github.com/white3d)
+- Twitter: [@odhiambo_ed](https://twitter.com/odhiambo_ed)
+- LinkedIn: [Edward Odhiambo](https://www.linkedin.com/in/edward-odhiambo-6a462a21b/)
+
 
 👤 **Author2**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+[Portfolio Website](https://theophileaseh.github.io/)
+
+- GitHub: [@Theophileash](https://github.com/Theophileaseh)
+- Twitter: [@NwachanT](https://twitter.com/NwachanT)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/nwachan-theophile-342274172)
+
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/white3d/math-magicians/issues).
 
 ## Show your support
 
