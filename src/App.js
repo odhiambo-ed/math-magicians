@@ -1,29 +1,21 @@
-import React from 'react';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
 
-import Calculator from './components/Calculator';
+import Home from './Home';
+import Calculates from './Calculates';
+import Quote from './Quote';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <div
-          style={{
-            backgroundColor: 'black',
-            width: '35%',
-            margin: 'auto',
-            marginTop: 100,
-          }}
-        >
-          <Calculator />
-        </div>
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/calculates" element={<Calculates />} />
+        <Route path="/quote" element={<Quote />} />
+      </Routes>
+    </Router>
+  );
 }
-export default App;
